@@ -33,15 +33,10 @@
                     <th>Nota</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Gabriela Santiago</td>
-                        <td>gabi.santiago@gmail.com</td>
-                        <td>10.00</td>
-                    </tr>
-                    <tr>
-                        <td>Rogerio Dias Junior</td>
-                        <td>rogerio.dias@gmail.com</td>
-                        <td>10.00</td>
+                    <tr v-for="aluno in alunos">
+                        <td>{{aluno.nome}}</td>
+                        <td>{{aluno.email}}</td>
+                        <td>{{aluno.nota}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -50,7 +45,14 @@
 
     <script>
         var app = new Vue({
-            el: "#app"
+            el: "#app",
+            data: {
+                alunos: [
+                    { nome: 'Gabriela Santiago', email: 'gabi.santiago@gmail.com', nota: '10.00' },
+                    { nome: 'Rogerio Dias Junior', email: 'rogerio.dias@outlook.com', nota: '10.00' },
+                    { nome: 'Theo Dias Monteiro', email: 'theo.dias@yahoo.com', nota: '5.00' }
+                ]
+            }
         })
     </script>
 </body>
