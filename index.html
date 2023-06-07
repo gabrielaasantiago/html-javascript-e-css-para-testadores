@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>WebBase from QA Ninja</title>
-    </head>
 
-    <body>
+<head>
+    <title>WebBase from QA Ninja</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
         <h1>Cadastro de Alunos</h1>
-        
+
         <form>
             <label for="nomeCompleto">Nome Completo</label>
             <input name="nomeCompleto" type="text">
@@ -43,6 +46,13 @@
                 </tbody>
             </table>
         </div>
+    </div>
 
-    </body>
+    <script>
+        var app = new Vue({
+            el: "#app"
+        })
+    </script>
+</body>
+
 </html>
