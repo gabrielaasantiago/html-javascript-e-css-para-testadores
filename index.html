@@ -21,7 +21,7 @@
             <label for="nota">Nota</label>
             <input name="nota" type="text" v-model="form.nota">
 
-            <input type="button" value="Cadastrar" @click="adicionarContato">
+            <input type="button" value="Cadastrar" @click="adicionarAluno">
 
         </form>
 
@@ -31,12 +31,16 @@
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Nota</th>
+                    <th>Ações</th>
                 </thead>
                 <tbody>
                     <tr v-for="aluno in alunos">
                         <td>{{aluno.nome}}</td>
                         <td>{{aluno.email}}</td>
                         <td>{{aluno.nota}}</td>
+                        <td>
+                            <button class="danger" @click="apagarAluno(aluno)">Apagar</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -63,10 +67,14 @@
                         nota: ''
                     }
                 },
-                adicionarContato: function() {
+                adicionarAluno: function() {
                     //console.log(this.form)
                     this.alunos.push(this.form)
                     this.limpaFormulario()
+                },
+                apagarAluno: function(aluno) {
+                    var posicao = this.alunos.indexOf(aluno)
+                    this.alunos.splice(posicao, 1)
                 }
             }
         })
@@ -91,7 +99,16 @@
             border-bottom: 1px solid #ccc;
             border-left: 1px solid #ccc;
             border-right: 1px solid #ccc;
-            background-color: #1e3f;
+        }
+
+        .table th:last-child, .table td:last-child {
+            text-align: right;
+        }
+
+        .danger {
+            background-color: #E91E63;
+            border-color: #E91E63;
+            color: #eee;
         }
 
         input {
